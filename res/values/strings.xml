@@ -3,6 +3,10 @@
 
     <string name="app_name">Phecalome</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="logo_titre">Phecalome</string>
+    <string name="bouton_caca">Je vais faire caca !</string>
+    <string name="bouton_stats">Je vais voir mes stats ...</string>
+    <string name="title_activity_caca">CacaActivity</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>
