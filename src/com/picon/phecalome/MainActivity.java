@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -18,6 +19,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		// Evenements sur les boutons
 		Button bouton_caca = (Button) findViewById(R.id.caca_button);
 		bouton_caca.setOnClickListener(this);
+		
 	}
 
 	@Override

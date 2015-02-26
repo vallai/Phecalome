@@ -5,44 +5,220 @@
 
    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="477dp"
         android:orientation="vertical" >
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 1" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 2" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 3" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 4" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 5" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Button 6" />
-
-        <Button
-            android:id="@+id/button3"
+        <RelativeLayout
+            android:id="@+id/layout_caca_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button 7" />
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_1"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_1" />
+
+            <TextView
+                android:id="@+id/text_caca_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_1"
+                android:text="@string/caca_1" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_2"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_2" />
+
+            <TextView
+                android:id="@+id/text_caca_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_2"
+                android:text="@string/caca_2" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_3"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_3" />
+
+            <TextView
+                android:id="@+id/text_caca_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_3"
+                android:text="@string/caca_3" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_4"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_4" />
+
+            <TextView
+                android:id="@+id/text_caca_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_4"
+                android:text="@string/caca_4" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_5"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_5" />
+
+            <TextView
+                android:id="@+id/text_caca_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_5"
+                android:text="@string/caca_5" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_6"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_6" />
+
+            <TextView
+                android:id="@+id/text_caca_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_6"
+                android:text="@string/caca_6" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+        
+        <RelativeLayout
+            android:id="@+id/layout_caca_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/image_caca_7"
+                android:layout_width="149dp"
+                android:layout_height="79dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/caca_7" />
+
+            <TextView
+                android:id="@+id/text_caca_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image_caca_7"
+                android:text="@string/caca_7" />
+        </RelativeLayout>
 
     </LinearLayout>
 
