@@ -1,7 +1,9 @@
 package com.picon.phecalome;
 
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import android.os.Bundle;
@@ -28,7 +30,10 @@ public class ResumeFragment extends SherlockListFragment implements ActionBar.Ta
 
     			List<String> resume = new ArrayList<String>();
     			resume.add("Nombre de cacas réalisés : " + cacas.size());
-
+    			resume.add("Nombre de cacas par jour : " +  String.format("%.2f",this.getNbCacasJour(cacas)));
+    			resume.add("Dureté moyenne : " + String.format("%.2f", this.getMoyennePuissance(cacas)));
+    			
+    			
     			/** Creating array adapter to set data in listview */
     			ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, resume);
 
@@ -36,6 +41,33 @@ public class ResumeFragment extends SherlockListFragment implements ActionBar.Ta
     			setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
  
+    }
+    
+    public float getMoyennePuissance(ArrayList<Caca> cacas) {
+    	// Verification de la liste
+    	if (cacas.isEmpty()) {
+    		return 0;
+    	}
+    	
+    	int somme = 0;
+    	for (Caca c:cacas) {
+    		somme += c.getPuissance();
+    	}
+    	float res = somme/ (float)cacas.size();
+    	return res;
+    }
+    
+    public float getNbCacasJour(ArrayList<Caca> cacas) {
+    	// Verification de la liste
+    	if (cacas.isEmpty()) {
+    		return 0;
+    	}
+    	// Calcul de la différence
+    	Timestamp premierCaca = new Timestamp(cacas.get(0).getDate());
+    	Timestamp now = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+
+    	float diff = (now.getTime() - premierCaca.getTime()) / (1000*60*60*24);
+    	return cacas.size()/(float)(diff+1);
     }
  
     @Override
@@ -56,5 +88,7 @@ public class ResumeFragment extends SherlockListFragment implements ActionBar.Ta
  
     @Override
     public void onTabReselected(Tab tab, FragmentTransaction ft) {
+    	 ft.add(android.R.id.content, this,"resume");
+         ft.attach(this);
     }
 }

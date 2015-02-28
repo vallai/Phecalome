@@ -32,9 +32,9 @@ public class CacaDAO {
 			this.creerFichier();
 		}
 
-		
+
 	}
-	
+
 	public void creerFichier() {
 		try {
 
@@ -44,7 +44,7 @@ public class CacaDAO {
 				// On crée un nouveau fichier. Si le fichier existe déjà, il ne sera pas créé
 				fichierSauvegarde.createNewFile();
 				FileOutputStream output = new FileOutputStream(fichierSauvegarde);
-				
+
 				// Ecriture dans le fichier
 				output.write("".getBytes());
 
@@ -105,18 +105,20 @@ public class CacaDAO {
 					lu.append((char)value);
 
 				// Parse du fichier
-				// Decoupe selon les lignes
-				String[] lignes = lu.toString().split("\n");
+				if(!lu.toString().isEmpty()) {
+					// Decoupe selon les lignes
+					String[] lignes = lu.toString().split("\n");
 
-				for (String ligne: lignes) {
-					// Decoupe selon la virgule
-					String[] elements = ligne.split(",");
-					long date = Long.valueOf(elements[0]).longValue();
-					int puissance = Integer.parseInt(elements[1]);
-					
-					// Creation du caca et ajout
-					Caca c = new Caca(date, puissance);
-					cacas.add(c);
+					for (String ligne: lignes) {
+						// Decoupe selon la virgule
+						String[] elements = ligne.split(",");
+						long date = Long.valueOf(elements[0]).longValue();
+						int puissance = Integer.parseInt(elements[1]);
+
+						// Creation du caca et ajout
+						Caca c = new Caca(date, puissance);
+						cacas.add(c);
+					}
 				}
 
 				if(input != null)

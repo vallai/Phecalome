@@ -71,5 +71,8 @@ public class HistoriqueFragment extends SherlockListFragment  implements ActionB
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
+		ft.add(android.R.id.content, this,"historique");
+
+		ft.attach(this);
 	}
 }
