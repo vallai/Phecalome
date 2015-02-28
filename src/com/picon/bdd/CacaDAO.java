@@ -19,18 +19,20 @@ public class CacaDAO {
 
 	public CacaDAO(Context c) {
 		//		this.c = c;
-		//		
+
 		// On crée un fichier qui correspond à l'emplacement extérieur
 		CHEMIN = Environment.getExternalStorageDirectory().getPath() + "/Android/data/" + c.getPackageName() + "/files/";
+		fichierSauvegarde = new File(CHEMIN + FICHIER);
 
-		// Create the parent path
+		// Si le dossier n'existe pas, creation du dossier et du fichier
 		File dir = new File(CHEMIN);
 		if (!dir.exists()) {
 			dir.mkdirs();
+			System.out.println("Le dossier a été créé");
 			this.creerFichier();
 		}
 
-		fichierSauvegarde = new File(CHEMIN + FICHIER);
+		
 	}
 	
 	public void creerFichier() {
@@ -42,7 +44,7 @@ public class CacaDAO {
 				// On crée un nouveau fichier. Si le fichier existe déjà, il ne sera pas créé
 				fichierSauvegarde.createNewFile();
 				FileOutputStream output = new FileOutputStream(fichierSauvegarde);
-
+				
 				// Ecriture dans le fichier
 				output.write("".getBytes());
 
@@ -50,8 +52,7 @@ public class CacaDAO {
 				if(output != null) {
 					output.close();
 				}
-
-				System.out.println("Le fichier a été généré.");
+				System.out.println("Le fichier a été créé.");
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -80,7 +81,7 @@ public class CacaDAO {
 				if(output != null) {
 					output.close();
 				}
-				System.out.println("Caca inséré");
+				System.out.println("Caca inséré : " + c);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

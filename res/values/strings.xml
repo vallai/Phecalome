@@ -17,6 +17,6 @@
     <string name="caca_7">Pas de morceau solide, entièrement liquide.</string>
     <string name="title_activity_stats">Mes stats de ouf !</string>
     <string name="titre_stats">Mes stats de ouf !</string>
+    <string name="raz">Reinitialiser mes données</string>
     
-
 </resources>

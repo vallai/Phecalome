@@ -60,19 +60,24 @@ public class CacaActivity extends Activity implements View.OnClickListener {
 			Toast.makeText(CacaActivity.this, "Caca 2 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_3 : 
-			Toast.makeText(CacaActivity.this, "Caca 3", Toast.LENGTH_LONG).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 3));
+			Toast.makeText(CacaActivity.this, "Caca 3 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_4 : 
-			Toast.makeText(CacaActivity.this, "Caca 4", Toast.LENGTH_LONG).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 4));
+			Toast.makeText(CacaActivity.this, "Caca 4 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_5 : 
-			Toast.makeText(CacaActivity.this, "Caca 5", Toast.LENGTH_LONG).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 5));
+			Toast.makeText(CacaActivity.this, "Caca 5 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_6 : 
-			Toast.makeText(CacaActivity.this, "Caca 6", Toast.LENGTH_LONG).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 6));
+			Toast.makeText(CacaActivity.this, "Caca 6 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_7 : 
-			Toast.makeText(CacaActivity.this, "Caca 7", Toast.LENGTH_LONG).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 7));
+			Toast.makeText(CacaActivity.this, "Caca 7 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		}
 	}
