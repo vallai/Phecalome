@@ -12,39 +12,71 @@ import android.os.Environment;
 
 public class CacaDAO {
 
-	private String PATH;
+	private String CHEMIN;
 	private String FICHIER = "mes_cacas_de_ouf.txt";
-	private File mFile = null;
-//	private Context c;
+	private File fichierSauvegarde = null;
+	//	private Context c;
 
 	public CacaDAO(Context c) {
-//		this.c = c;
-//		
+		//		this.c = c;
+		//		
 		// On crée un fichier qui correspond à l'emplacement extérieur
-		PATH = Environment.getExternalStorageDirectory().getPath() + "/Android/data/" + c.getPackageName() + "/files/";
-		
+		CHEMIN = Environment.getExternalStorageDirectory().getPath() + "/Android/data/" + c.getPackageName() + "/files/";
+
 		// Create the parent path
-		File dir = new File(PATH);
+		File dir = new File(CHEMIN);
 		if (!dir.exists()) {
-		    dir.mkdirs();
+			dir.mkdirs();
+			this.creerFichier();
 		}
 
-		mFile = new File(PATH + FICHIER);
-
+		fichierSauvegarde = new File(CHEMIN + FICHIER);
 	}
 	
- 
-
-	public void ecrire() {
+	public void creerFichier() {
 		try {
 
 			// Si le fichier est lisible et qu'on peut écrire dedans
 			if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-					&& !Environment.MEDIA_MOUNTED_READ_ONLY.equals(Environment.getExternalStorageState())) {;
+					&& !Environment.MEDIA_MOUNTED_READ_ONLY.equals(Environment.getExternalStorageState())) {
 				// On crée un nouveau fichier. Si le fichier existe déjà, il ne sera pas créé
-				mFile.createNewFile();
-				FileOutputStream output = new FileOutputStream(mFile, true);
-				output.write("date,puissance\n".getBytes());
+				fichierSauvegarde.createNewFile();
+				FileOutputStream output = new FileOutputStream(fichierSauvegarde);
+
+				// Ecriture dans le fichier
+				output.write("".getBytes());
+
+				// Fermeture du fichier
+				if(output != null) {
+					output.close();
+				}
+
+				System.out.println("Le fichier a été généré.");
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void ecrireCaca(Caca c) {
+		try {
+
+			// Si le fichier est lisible et qu'on peut écrire dedans
+			if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+					&& !Environment.MEDIA_MOUNTED_READ_ONLY.equals(Environment.getExternalStorageState())) {
+				// On crée un nouveau fichier. Si le fichier existe déjà, il ne sera pas créé
+				fichierSauvegarde.createNewFile();
+				FileOutputStream output = new FileOutputStream(fichierSauvegarde, true);
+
+				// Creation de la variable à entrer dans le fichier
+				String caca_texte = c.getDate() + "," + c.getPuissance() + "\n";
+
+				// Ecriture dans le fichier
+				output.write(caca_texte.getBytes());
+
+				// Fermeture du fichier
 				if(output != null) {
 					output.close();
 				}
@@ -57,16 +89,35 @@ public class CacaDAO {
 		}
 	}
 
-	public void lire() {
+	public ArrayList<Caca> lireCacas() {
+		ArrayList<Caca> cacas = new ArrayList<Caca>();
 		try {
 			if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 				int value;
+
+				// Ouverture du fichier
 				StringBuffer lu = new StringBuffer();
-				FileInputStream input = new FileInputStream(mFile);
+				FileInputStream input = new FileInputStream(fichierSauvegarde);
+
+				// Lecture du fichier caractère par caractère
 				while((value = input.read()) != -1)
 					lu.append((char)value);
 
-				System.out.println("Fichier lu : " + lu);
+				// Parse du fichier
+				// Decoupe selon les lignes
+				String[] lignes = lu.toString().split("\n");
+
+				for (String ligne: lignes) {
+					// Decoupe selon la virgule
+					String[] elements = ligne.split(",");
+					long date = Long.valueOf(elements[0]).longValue();
+					int puissance = Integer.parseInt(elements[1]);
+					
+					// Creation du caca et ajout
+					Caca c = new Caca(date, puissance);
+					cacas.add(c);
+				}
+
 				if(input != null)
 					input.close();
 			}
@@ -76,48 +127,6 @@ public class CacaDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static final String TABLE_NAME = "caca";
-	public static final String KEY = "id";
-	public static final String DATE = "date";
-	public static final String PUISSANCE = "puissance";
-
-	public static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + " (" + KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DATE + " INTEGER, " + PUISSANCE + " INTEGER);";
-
-	public static final String TABLE_DROP =  "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
-
-	/**
-	 * @param c le caca à ajouter à la base
-	 */
-	public void ajouter(Caca c) {
-
-	}
-
-	/**
-	 * @param id l'identifiant du caca à supprimer
-	 */
-	public void supprimer(long id) {
-
-	}
-
-	/**
-	 * @param c le caca modifié
-	 */
-	public void modifier(Caca c) {
-
-	}
-
-
-	public ArrayList<Caca> getAll() {
-		return null;
-	}
-
-	/**
-	 * @param id l'identifiant du caca à récupérer
-	 */
-	public Caca getById(long id) {
-
-		return null;
+		return cacas;
 	}
 }

@@ -1,5 +1,10 @@
 package com.picon.bdd;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Caca {
 
 	private long id;
@@ -30,6 +35,12 @@ public class Caca {
 	public long getDate() {
 		return this.date;
 	}
+	
+	public String getDateString() {
+		Timestamp t = new Timestamp(this.date);
+		DateFormat formatter = new SimpleDateFormat("dd/MM HH:mm"); 
+		return formatter.format(t);
+	}
 
 	public void setDate(long date) {
 		this.date = date;
@@ -43,6 +54,9 @@ public class Caca {
 		this.puissance = puissance;
 	}
 
+	public String toString() {
+		return  this.getDateString() + " - " + this.puissance;
+	}
 
 
 }

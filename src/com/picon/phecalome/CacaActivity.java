@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.picon.bdd.Caca;
 import com.picon.bdd.CacaDAO;
 
 public class CacaActivity extends Activity implements View.OnClickListener {
@@ -48,17 +49,15 @@ public class CacaActivity extends Activity implements View.OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Timestamp now = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
 		switch (v.getId()) {
-		case R.id.layout_caca_1 : 
-			//Toast.makeText(CacaActivity.this, "Caca 1", Toast.LENGTH_SHORT).show();
-			Timestamp now = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
-			System.out.println(now.getTime());
-			dao.ecrire();
-			
-			Toast.makeText(CacaActivity.this, "Caca 1 inseré", Toast.LENGTH_LONG).show();
+		case R.id.layout_caca_1 :
+			dao.ecrireCaca(new Caca(now.getTime(), 1));
+			Toast.makeText(CacaActivity.this, "Caca 1 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_2 : 
-			Toast.makeText(CacaActivity.this, "Caca 2", Toast.LENGTH_SHORT).show();
+			dao.ecrireCaca(new Caca(now.getTime(), 2));
+			Toast.makeText(CacaActivity.this, "Caca 2 inseré", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.layout_caca_3 : 
 			Toast.makeText(CacaActivity.this, "Caca 3", Toast.LENGTH_LONG).show();
