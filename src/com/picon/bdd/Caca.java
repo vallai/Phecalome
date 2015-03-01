@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Caca {
 
@@ -47,7 +46,32 @@ public class Caca {
 	public String getDateString() {
 		Timestamp t = new Timestamp(this.date);
 		DateFormat formatter = new SimpleDateFormat("dd/MM HH:mm"); 
-		return formatter.format(t);
+		
+		String jourDeLaSemaine = "";
+		switch (t.getDay()) {
+		case 1 : 
+			jourDeLaSemaine = "Lundi ";
+			break;
+		case 2 : 
+			jourDeLaSemaine = "Mardi ";
+			break;
+		case 3 : 
+			jourDeLaSemaine = "Mercredi ";
+			break;
+		case 4 : 
+			jourDeLaSemaine = "Jeudi ";
+			break;
+		case 5 : 
+			jourDeLaSemaine = "Vendredi ";
+			break;
+		case 6 : 
+			jourDeLaSemaine = "Samedi ";
+			break;
+		case 0 : 
+			jourDeLaSemaine = "Dimanche ";
+			break;
+		}
+		return jourDeLaSemaine + formatter.format(t);
 	}
 
 	public void setDate(long date) {

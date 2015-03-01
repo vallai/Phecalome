@@ -3,17 +3,16 @@ package com.picon.phecalome;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.SherlockActivity;
 import com.picon.bdd.Caca;
 import com.picon.bdd.CacaDAO;
 
-public class CacaActivity extends Activity implements View.OnLongClickListener {
+public class CacaActivity extends SherlockActivity implements View.OnLongClickListener {
 	
 	private CacaDAO dao;
 

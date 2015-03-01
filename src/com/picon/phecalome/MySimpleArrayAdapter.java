@@ -1,7 +1,5 @@
 package com.picon.phecalome;
 
-import com.picon.bdd.Caca;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MySimpleArrayAdapter extends ArrayAdapter<String> {
 	private final Context context;
@@ -29,7 +26,6 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
 
 
 		String[] elements = values[position].split(" - ");
-		System.out.println(values[position]);
 		TextView titre = (TextView) rowView.findViewById(R.id.titre);
 		TextView description = (TextView) rowView.findViewById(R.id.description);
 		ImageView image = (ImageView) rowView.findViewById(R.id.image);
@@ -63,15 +59,7 @@ public class MySimpleArrayAdapter extends ArrayAdapter<String> {
 			description.setText(elements[1] + " : Oula, sacrée chouille !" );
 			image.setImageResource(R.drawable.caca_7);
 			break;
-
 		}
-
-
-		//    image.setImageDrawable(R.drawable.caca_1);
-
-
-		String s = values[position];
-
 
 		return rowView;
 	}

@@ -1,19 +1,12 @@
 package com.picon.phecalome;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-
-
 import com.picon.bdd.Caca;
 import com.picon.bdd.CacaDAO;
 
