@@ -3,6 +3,7 @@ package com.picon.bdd;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Caca {
@@ -11,17 +12,24 @@ public class Caca {
 	private long date;
 	private int puissance;
 
-	public Caca(long date, int caca) {
+	public Caca (int puissance) {
+		super();
+		Timestamp now = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+		this.date = now.getTime();
+		this.puissance = puissance;		
+	}
+	
+	public Caca(long date, int puissance) {
 		super();
 		this.date = date;
-		this.puissance = caca;
+		this.puissance = puissance;
 	}
 
-	public Caca(long id, long date, int caca) {
+	public Caca(long id, long date, int puissance) {
 		super();
 		this.id = id;
 		this.date = date;
-		this.puissance = caca;
+		this.puissance = puissance;
 	}
 
 	public long getId() {

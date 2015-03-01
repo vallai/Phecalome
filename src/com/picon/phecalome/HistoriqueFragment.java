@@ -10,30 +10,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockListFragment;
 import com.picon.bdd.Caca;
 
-public class HistoriqueFragment extends SherlockListFragment  implements ActionBar.TabListener{
+public class HistoriqueFragment extends SherlockListFragment implements ActionBar.TabListener{
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		// BDD
 		ArrayList<Caca> cacas = ((StatsActivity) getActivity()).getCacas();
 
-		List<String> mesCacas = new ArrayList<String>();
-		for (Caca c : cacas) {
-			mesCacas.add(c.toString());
+		String mesCacas[] = new String[cacas.size()]; 
+		for (int i=0 ; i<cacas.size() ; i++) {
+			mesCacas[i] = cacas.get(cacas.size()-1-i).toString();
 		}
 
 		/** Creating array adapter to set data in listview */
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, mesCacas);
+//		ArrayAdapter<String> adapter = new MySimpleArrayAdapter<String>(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, mesCacas);
 
+		MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(getActivity().getBaseContext() , mesCacas);
+	    setListAdapter(adapter);
 		/** Setting the array adapter to the listview */
-		setListAdapter(adapter);
+//		setListAdapter(adapter);
 
 
 		//		

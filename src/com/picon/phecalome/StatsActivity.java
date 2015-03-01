@@ -21,7 +21,6 @@ public class StatsActivity extends SherlockFragmentActivity {
 
 	private CacaDAO dao;
 	private ArrayList<Caca> cacas;
-	private TextView nb_cacas;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
